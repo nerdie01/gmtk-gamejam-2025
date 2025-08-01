@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b21f6v1m5y50u"]
+
+[resource]
+resource_name = "handle"
+cull_mode = 2
+albedo_color = Color(0.306376, 0.293956, 0.297772, 1)
+metallic = 0.5

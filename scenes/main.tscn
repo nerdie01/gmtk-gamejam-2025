@@ -1,0 +1,171 @@
+[gd_scene load_steps=14 format=3 uid="uid://2jfv8j4pgmsw"]
+
+[ext_resource type="Script" uid="uid://btjsho8tolk2y" path="res://assets/camera/fpv_camera.gd" id="1_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://s3unxdq5tjth" path="res://assets/camera/shaders/bayer8tile4.png" id="2_0wfyh"]
+[ext_resource type="Shader" uid="uid://dgiycnvlxldpb" path="res://assets/camera/shaders/dither_multicol.gdshader" id="2_tipki"]
+[ext_resource type="PackedScene" uid="uid://bartas2e5qsxi" path="res://assets/entity/character/player.tscn" id="4_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://vjdka2p7hutg" path="res://assets/entity/tv/screen/tv_screen.tscn" id="7_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://dm831m5x7krwd" path="res://assets/entity/tv/vhs/vhs.tscn" id="7_tipki"]
+[ext_resource type="Shader" uid="uid://spaymxpmjlcy" path="res://assets/camera/shaders/crt.gdshader" id="8_tipki"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wfyh"]
+shader = ExtResource("2_tipki")
+shader_parameter/dither_matrix = ExtResource("2_0wfyh")
+shader_parameter/levels = 3
+shader_parameter/max_color_range = 0.2
+shader_parameter/dither_scale = 1
+shader_parameter/dithering_intensity = 0.2
+shader_parameter/brightness = 1.5
+shader_parameter/contrast = 0.5
+
+[sub_resource type="Environment" id="Environment_tipki"]
+background_mode = 1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0wfyh"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_0wfyh"]
+map_width = 20
+map_depth = 20
+map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tbgi4"]
+viewport_path = NodePath("crt_camera")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_85g3d"]
+shader = ExtResource("8_tipki")
+shader_parameter/overlay = false
+shader_parameter/scanlines_opacity = 0.2
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.1
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = true
+shader_parameter/roll = true
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.2
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.05
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[node name="SubViewportContainer" type="Node3D"]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(576, 324)
+render_target_update_mode = 4
+
+[node name="Environment" type="Node3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+cull_mask = 1048573
+current = true
+
+[node name="FPVCamera" type="Node" parent="SubViewportContainer/SubViewport/Environment/Camera3D" node_paths=PackedStringArray("camera", "target")]
+script = ExtResource("1_tbgi4")
+camera = NodePath("..")
+target = NodePath("../../../PhysicalCharacter")
+sensitivity = 0.003
+debug_hide_mouse = true
+metadata/_custom_type_script = "uid://btjsho8tolk2y"
+
+[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport/Environment/Camera3D"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_0wfyh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/Environment"]
+environment = SubResource("Environment_tipki")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_0wfyh")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D"]
+shape = SubResource("HeightMapShape3D_0wfyh")
+
+[node name="PhysicalCharacter" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_o6xl0")]
+
+[node name="TVScreen" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Display" type="Sprite3D" parent="SubViewportContainer/SubViewport/TVScreen"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.702125, 0.335594)
+cast_shadow = 0
+texture = SubResource("ViewportTexture_tbgi4")
+
+[node name="VHS" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -1, -5.96046e-08, 0, 5.96046e-08, -1, 0, 0.623017, -3.42792)
+light_color = Color(0.729412, 0.886275, 0.6, 1)
+light_energy = 10.0
+light_size = 0.2
+light_specular = 0.1
+shadow_enabled = true
+shadow_normal_bias = 7.5
+spot_range = 10.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6, -3)
+light_color = Color(0.999998, 0.999936, 0.750561, 1)
+light_energy = 2.0
+spot_range = 15.0
+
+[node name="crt_camera" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(545, 480)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="crt_camera"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 1, -1)
+current = true
+
+[node name="ShaderPasses" type="Node" parent="crt_camera"]
+
+[node name="ColorRect" type="ColorRect" parent="crt_camera/ShaderPasses"]
+material = SubResource("ShaderMaterial_0wfyh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="crt_camera/ShaderPasses"]
+rect = Rect2(0, 0, 545, 480)
+
+[node name="CRT" type="ColorRect" parent="crt_camera/ShaderPasses"]
+material = SubResource("ShaderMaterial_85g3d")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

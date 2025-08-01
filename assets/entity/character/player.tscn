@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bartas2e5qsxi"]
+
+[ext_resource type="Script" uid="uid://c5aqpfrrgbf85" path="res://assets/entity/character/physical_character.gd" id="1_o0hri"]
+[ext_resource type="Script" uid="uid://bxkgwo3i4fvqf" path="res://assets/entity/components/entity_velocity_component.gd" id="2_ux1e0"]
+[ext_resource type="Script" uid="uid://doxwj3wcduv17" path="res://assets/entity/components/entity_interaction_component.gd" id="3_ux1e0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jyhfs"]
+radius = 0.3
+height = 1.75
+
+[node name="PhysicalCharacter" type="CharacterBody3D" node_paths=PackedStringArray("velocity_component")]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_o0hri")
+velocity_component = NodePath("EntityVelocityComponent")
+metadata/_custom_type_script = "uid://c5aqpfrrgbf85"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+shape = SubResource("CapsuleShape3D_jyhfs")
+
+[node name="EntityVelocityComponent" type="Node" parent="."]
+script = ExtResource("2_ux1e0")
+metadata/_custom_type_script = "uid://bxkgwo3i4fvqf"
+
+[node name="InteractionComponent" type="Node" parent="." node_paths=PackedStringArray("character")]
+script = ExtResource("3_ux1e0")
+character = NodePath("..")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

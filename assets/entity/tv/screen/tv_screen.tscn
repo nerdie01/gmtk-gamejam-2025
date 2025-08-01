@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://vjdka2p7hutg"]
+
+[ext_resource type="ArrayMesh" uid="uid://mh83f4oohys4" path="res://assets/entity/tv/screen/mesh/tv_screen_Cube.res" id="1_mkn15"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_csqrd"]
+size = Vector3(0.955383, 1.16562, 0.979246)
+
+[node name="TVScreen" type="StaticBody3D"]
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+cast_shadow = 0
+mesh = ExtResource("1_mkn15")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.531, -0.118)
+shape = SubResource("BoxShape3D_csqrd")
