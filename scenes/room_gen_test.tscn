@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdftq0flx2w30"]
+[gd_scene load_steps=11 format=3 uid="uid://cdftq0flx2w30"]
 
-[ext_resource type="PackedScene" uid="uid://ddnhytqadmdlg" path="res://assets/entity/character/default_room.tscn" id="1_8soox"]
 [ext_resource type="Script" uid="uid://btjsho8tolk2y" path="res://assets/camera/fpv_camera.gd" id="2_8soox"]
 [ext_resource type="Shader" uid="uid://dgiycnvlxldpb" path="res://assets/camera/shaders/dither_multicol.gdshader" id="3_72exj"]
 [ext_resource type="Texture2D" uid="uid://s3unxdq5tjth" path="res://assets/camera/shaders/bayer8tile4.png" id="4_l12fb"]
 [ext_resource type="PackedScene" uid="uid://bartas2e5qsxi" path="res://assets/entity/character/player.tscn" id="5_1eyp4"]
+[ext_resource type="Script" uid="uid://ikhkvu3xfw4o" path="res://assets/env/room_generator.gd" id="6_72exj"]
 [ext_resource type="PackedScene" uid="uid://dm831m5x7krwd" path="res://assets/entity/tv/vhs/vhs.tscn" id="6_rlalt"]
 [ext_resource type="Texture2D" uid="uid://kncujw03mhqb" path="res://assets/ui/game/crosshair.png" id="7_72exj"]
+[ext_resource type="PackedScene" uid="uid://ddnhytqadmdlg" path="res://assets/env/room/default_room.tscn" id="7_l12fb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mjwj"]
 shader = ExtResource("3_72exj")
@@ -15,15 +16,13 @@ shader_parameter/levels = 3
 shader_parameter/max_color_range = 0.2
 shader_parameter/dither_scale = 1
 shader_parameter/dithering_intensity = 0.2
-shader_parameter/brightness = 3.0
-shader_parameter/contrast = 0.5
+shader_parameter/brightness = 2.0
+shader_parameter/contrast = 0.25
 
 [sub_resource type="Environment" id="Environment_0j1wu"]
 background_mode = 1
 
 [node name="scene" type="Node3D"]
-
-[node name="DefaultRoom" parent="." instance=ExtResource("1_8soox")]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 texture_filter = 1
@@ -74,6 +73,17 @@ environment = SubResource("Environment_0j1wu")
 [node name="VHS" parent="SubViewportContainer/SubViewport" instance=ExtResource("6_rlalt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
 
+[node name="RoomGenerator" type="Node3D" parent="SubViewportContainer/SubViewport" node_paths=PackedStringArray("player", "timer")]
+script = ExtResource("6_72exj")
+player = NodePath("../PhysicalCharacter")
+timer = NodePath("Timer")
+room = ExtResource("7_l12fb")
+
+[node name="DefaultRoom" parent="SubViewportContainer/SubViewport/RoomGenerator" instance=ExtResource("7_l12fb")]
+
+[node name="Timer" type="Timer" parent="SubViewportContainer/SubViewport/RoomGenerator"]
+autostart = true
+
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -95,3 +105,19 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("7_72exj")
+
+[node name="Label" type="Label" parent="UI"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -26.0
+offset_right = 110.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[F] Interact"

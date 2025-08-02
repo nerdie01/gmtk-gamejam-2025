@@ -1,35 +1,116 @@
-[gd_scene load_steps=14 format=3 uid="uid://2jfv8j4pgmsw"]
+[gd_scene load_steps=23 format=3 uid="uid://2jfv8j4pgmsw"]
 
 [ext_resource type="Script" uid="uid://btjsho8tolk2y" path="res://assets/camera/fpv_camera.gd" id="1_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://s3unxdq5tjth" path="res://assets/camera/shaders/bayer8tile4.png" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://ck7mewj01b0k6" path="res://assets/camera/fpv_camera_fov_change.gd" id="2_85g3d"]
 [ext_resource type="Shader" uid="uid://dgiycnvlxldpb" path="res://assets/camera/shaders/dither_multicol.gdshader" id="2_tipki"]
+[ext_resource type="Shader" uid="uid://dqtxrn61m40ww" path="res://assets/camera/shaders/dither.gdshader" id="3_choun"]
 [ext_resource type="PackedScene" uid="uid://bartas2e5qsxi" path="res://assets/entity/character/player.tscn" id="4_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://vjdka2p7hutg" path="res://assets/entity/tv/screen/tv_screen.tscn" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://dm831m5x7krwd" path="res://assets/entity/tv/vhs/vhs.tscn" id="7_tipki"]
+[ext_resource type="Script" uid="uid://d1xmjn1u0bsu2" path="res://assets/entity/character/hands_anchor.gd" id="5_o6xl0"]
+[ext_resource type="ArrayMesh" uid="uid://mh83f4oohys4" path="res://assets/entity/tv/screen/mesh/tv_screen_Cube.res" id="5_tefeu"]
 [ext_resource type="Shader" uid="uid://spaymxpmjlcy" path="res://assets/camera/shaders/crt.gdshader" id="8_tipki"]
+[ext_resource type="Script" uid="uid://byfu8nj64a2yv" path="res://assets/entity/tv/tv.gd" id="9_choun"]
+[ext_resource type="PackedScene" uid="uid://dm831m5x7krwd" path="res://assets/entity/tv/vhs/vhs.tscn" id="9_trceg"]
+[ext_resource type="Script" uid="uid://ikhkvu3xfw4o" path="res://assets/env/room_generator.gd" id="11_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://ddnhytqadmdlg" path="res://assets/env/room/default_room.tscn" id="12_trceg"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wfyh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ya4ey"]
 shader = ExtResource("2_tipki")
 shader_parameter/dither_matrix = ExtResource("2_0wfyh")
 shader_parameter/levels = 3
-shader_parameter/max_color_range = 0.2
-shader_parameter/dither_scale = 1
+shader_parameter/max_color_range = 0.0
+shader_parameter/dither_scale = 2
 shader_parameter/dithering_intensity = 0.2
-shader_parameter/brightness = 1.5
-shader_parameter/contrast = 0.5
+shader_parameter/brightness = 2.0
+shader_parameter/contrast = 1.0
 
 [sub_resource type="Environment" id="Environment_tipki"]
 background_mode = 1
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_0wfyh"]
-
-[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_0wfyh"]
-map_width = 20
-map_depth = 20
-map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_tbgi4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_eb6dy"]
 viewport_path = NodePath("crt_camera")
+
+[sub_resource type="Animation" id="Animation_trceg"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationTransformParent/TV/VHS")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.370931, 1.02273)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationTransformParent")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.5, 0, 0, 0.866025)
+
+[sub_resource type="Animation" id="Animation_eb6dy"]
+resource_name = "tv_idle_empty"
+length = 1.50001
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationTransformParent")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 0.755574, 1, 0, 0.0148252, 0, 1.5, 1, 0, 0, 0)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationTransformParent")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationTransformParent/TV/VHS")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0.0188893, 1, 0, -0.370931, 0.238969)
+
+[sub_resource type="Animation" id="Animation_a8y0u"]
+resource_name = "tv_reload"
+length = 0.583342
+step = 0.0833333
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationTransformParent/TV/VHS")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.0833333, 1, 0, -0.370931, 1.02273, 0.5, 1, 0, -0.370931, 0.249809)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationTransformParent")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.0833333, 1, -0.5, 0, 0, 0.866025, 0.5, 1, -0.5, 0, 0, 0.866025, 0.583333, 1, 0, 0, 0, 1)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8y0u"]
+_data = {
+&"RESET": SubResource("Animation_trceg"),
+&"tv_idle_empty": SubResource("Animation_eb6dy"),
+&"tv_reload": SubResource("Animation_a8y0u")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wfyh"]
+shader = ExtResource("3_choun")
+shader_parameter/dither_matrix = ExtResource("2_0wfyh")
+shader_parameter/primary_color = Color(0.729412, 0.886275, 0.6, 1)
+shader_parameter/secondary_color = Color(0.0627451, 0.12549, 0.054902, 1)
+shader_parameter/levels = 3
+shader_parameter/max_color_range = 0.0
+shader_parameter/dither_scale = 2
+shader_parameter/dithering_intensity = 0.2
+shader_parameter/brightness = 2.5
+shader_parameter/contrast = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_85g3d"]
 shader = ExtResource("8_tipki")
@@ -65,31 +146,40 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch = true
-stretch_shrink = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(576, 324)
+size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
 [node name="Environment" type="Node3D" parent="SubViewportContainer/SubViewport"]
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-cull_mask = 1048573
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 current = true
 
 [node name="FPVCamera" type="Node" parent="SubViewportContainer/SubViewport/Environment/Camera3D" node_paths=PackedStringArray("camera", "target")]
 script = ExtResource("1_tbgi4")
 camera = NodePath("..")
 target = NodePath("../../../PhysicalCharacter")
+camera_lerp_speed = 25.0
 sensitivity = 0.003
+offset = Vector3(0, 1.5, 0)
 debug_hide_mouse = true
 metadata/_custom_type_script = "uid://btjsho8tolk2y"
 
+[node name="FPVCameraFOVChange" type="Node" parent="SubViewportContainer/SubViewport/Environment/Camera3D/FPVCamera" node_paths=PackedStringArray("first_person_camera")]
+script = ExtResource("2_85g3d")
+first_person_camera = NodePath("..")
+sprint_fov_multiplier = 1.1
+metadata/_custom_type_script = "uid://ck7mewj01b0k6"
+
+[node name="HandsTarget" type="Node3D" parent="SubViewportContainer/SubViewport/Environment/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
 [node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport/Environment/Camera3D"]
 texture_filter = 1
-material = SubResource("ShaderMaterial_0wfyh")
+material = SubResource("ShaderMaterial_ya4ey")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -100,44 +190,54 @@ mouse_filter = 2
 [node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport/Environment"]
 environment = SubResource("Environment_tipki")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport"]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/StaticBody3D"]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
-mesh = SubResource("PlaneMesh_0wfyh")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport/StaticBody3D"]
-shape = SubResource("HeightMapShape3D_0wfyh")
-
 [node name="PhysicalCharacter" parent="SubViewportContainer/SubViewport" instance=ExtResource("4_o6xl0")]
 
-[node name="TVScreen" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_o6xl0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+[node name="HandsAnchor" type="Node3D" parent="SubViewportContainer/SubViewport/PhysicalCharacter" node_paths=PackedStringArray("hands_target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("5_o6xl0")
+hands_target = NodePath("../../Environment/Camera3D/HandsTarget")
+lerp_speed = 8.0
 
-[node name="Display" type="Sprite3D" parent="SubViewportContainer/SubViewport/TVScreen"]
-transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.702125, 0.335594)
-cast_shadow = 0
-texture = SubResource("ViewportTexture_tbgi4")
+[node name="TVCenter" type="Node3D" parent="SubViewportContainer/SubViewport/PhysicalCharacter/HandsAnchor" node_paths=PackedStringArray("sprite")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49, 0.225, -0.702)
+script = ExtResource("9_choun")
+viewport_tex = SubResource("ViewportTexture_eb6dy")
+sprite = NodePath("AnimationTransformParent/TV/Sprite3D")
 
-[node name="VHS" parent="SubViewportContainer/SubViewport" instance=ExtResource("7_tipki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+[node name="AnimationTransformParent" type="Node3D" parent="SubViewportContainer/SubViewport/PhysicalCharacter/HandsAnchor/TVCenter"]
+transform = Transform3D(1, 0, 0, 0, 0.499999, 0.866025, 0, -0.866025, 0.499999, 0, 0, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -1, -5.96046e-08, 0, 5.96046e-08, -1, 0, 0.623017, -3.42792)
+[node name="TV" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/PhysicalCharacter/HandsAnchor/TVCenter/AnimationTransformParent"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4.50033e-05, 0)
+layers = 2
+mesh = ExtResource("5_tefeu")
+skeleton = NodePath("../../../..")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/SubViewport/PhysicalCharacter/HandsAnchor/TVCenter/AnimationTransformParent/TV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.243901, 0.517018)
+layers = 2
 light_color = Color(0.729412, 0.886275, 0.6, 1)
-light_energy = 10.0
-light_size = 0.2
-light_specular = 0.1
-shadow_enabled = true
-shadow_normal_bias = 7.5
-spot_range = 10.0
+light_energy = 0.25
+omni_range = 1.0
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 6, -3)
-light_color = Color(0.999998, 0.999936, 0.750561, 1)
-light_energy = 2.0
-spot_range = 15.0
+[node name="Sprite3D" type="Sprite3D" parent="SubViewportContainer/SubViewport/PhysicalCharacter/HandsAnchor/TVCenter/AnimationTransformParent/TV"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.178707, 0.335807)
+layers = 2
+gi_mode = 0
+pixel_size = 0.0015
+
+[node name="VHS" parent="SubViewportContainer/SubViewport/PhysicalCharacter/HandsAnchor/TVCenter/AnimationTransformParent/TV" instance=ExtResource("9_trceg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.370931, 1.02273)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/PhysicalCharacter/HandsAnchor/TVCenter"]
+libraries = {
+&"": SubResource("AnimationLibrary_a8y0u")
+}
+autoplay = "tv_idle_empty"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0)
+visible = false
 
 [node name="crt_camera" type="SubViewport" parent="."]
 handle_input_locally = false
@@ -145,12 +245,14 @@ size = Vector2i(545, 480)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="crt_camera"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 1, -1)
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 2, 1, 3)
+cull_mask = 1048573
 current = true
 
 [node name="ShaderPasses" type="Node" parent="crt_camera"]
 
 [node name="ColorRect" type="ColorRect" parent="crt_camera/ShaderPasses"]
+visible = false
 material = SubResource("ShaderMaterial_0wfyh")
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,6 +262,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="crt_camera/ShaderPasses"]
+visible = false
 rect = Rect2(0, 0, 545, 480)
 
 [node name="CRT" type="ColorRect" parent="crt_camera/ShaderPasses"]
@@ -169,3 +272,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="RoomGenerator" type="Node3D" parent="." node_paths=PackedStringArray("player", "timer")]
+script = ExtResource("11_eb6dy")
+player = NodePath("../SubViewportContainer/SubViewport/PhysicalCharacter")
+timer = NodePath("Timer")
+room = ExtResource("12_trceg")
+
+[node name="DefaultRoom" parent="RoomGenerator" instance=ExtResource("12_trceg")]
+
+[node name="Timer" type="Timer" parent="RoomGenerator"]
+autostart = true

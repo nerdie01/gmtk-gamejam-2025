@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bf6gyupblx7yw"
-path="res://.godot/imported/door.glb-853d97a116d1ecca00b8dbd1b630895b.scn"
+uid="uid://3gnboau265gf"
+path="res://.godot/imported/room_small.glb-34dd6390e156744a43db21459334903b.scn"
 
 [deps]
 
-source_file="res://blendfiles/room/door/door.glb"
-dest_files=["res://.godot/imported/door.glb-853d97a116d1ecca00b8dbd1b630895b.scn"]
+source_file="res://blendfiles/room/small/room_small.glb"
+dest_files=["res://.godot/imported/room_small.glb-34dd6390e156744a43db21459334903b.scn"]
 
 [params]
 
 nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
-nodes/root_scale=0.5
+nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
@@ -34,31 +34,31 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"frame": {
+"walls_floor": {
 "use_external/enabled": true,
-"use_external/path": "res://assets/env/door/frame.tres"
+"use_external/path": "res://assets/env/room/apartment/materials/walls_floor.tres"
 },
-"handle": {
+"window": {
 "use_external/enabled": true,
-"use_external/path": "res://assets/env/door/handle.tres"
+"use_external/path": "res://assets/env/room/apartment/materials/window.tres"
 }
 },
 "meshes": {
-"door_Cube": {
+"room_small_Cube": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://assets/env/door/door_Cube.res"
+"save_to_file/path": "res://assets/env/room/apartment/mesh/room_small_Cube.res"
 },
-"door_Cube_002": {
+"room_small_Plane": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "res://assets/env/door/door_Cube_002.res"
+"save_to_file/path": "res://assets/env/room/apartment/mesh/room_small_Plane.res"
 }
 }
 }

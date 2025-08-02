@@ -2,21 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvhhjl5i84i82"
-path.s3tc="res://.godot/imported/wall.jpg-2135327463946f0508d735623eabd4c9.s3tc.ctex"
+uid="uid://btrxaope8y57s"
+path="res://.godot/imported/room_small_Cube_Bake1_PBR_Diffuse.png-d793a1330296a21fe77bdc1f1c73c76b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
+}
+generator_parameters={
+"md5": "b02a1ecc99221f4d081ac8a5525b6ef8"
 }
 
 [deps]
 
-source_file="res://blendfiles/room/wall.jpg"
-dest_files=["res://.godot/imported/wall.jpg-2135327463946f0508d735623eabd4c9.s3tc.ctex"]
+source_file="res://blendfiles/room/small/room_small_Cube_Bake1_PBR_Diffuse.png"
+dest_files=["res://.godot/imported/room_small_Cube_Bake1_PBR_Diffuse.png-d793a1330296a21fe77bdc1f1c73c76b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -32,4 +34,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

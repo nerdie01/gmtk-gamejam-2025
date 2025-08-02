@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvhhjl5i84i82"
-path.s3tc="res://.godot/imported/wall.jpg-2135327463946f0508d735623eabd4c9.s3tc.ctex"
+uid="uid://dujb0ruvq5wey"
+path.s3tc="res://.godot/imported/room_small_worn_planks_diff_1k.jpg-4d55398c4da322d4c02edffe2e974cd0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "394bc7fc84348d6450866a6f5b47e71f"
+}
 
 [deps]
 
-source_file="res://blendfiles/room/wall.jpg"
-dest_files=["res://.godot/imported/wall.jpg-2135327463946f0508d735623eabd4c9.s3tc.ctex"]
+source_file="res://blendfiles/room/small/room_small_worn_planks_diff_1k.jpg"
+dest_files=["res://.godot/imported/room_small_worn_planks_diff_1k.jpg-4d55398c4da322d4c02edffe2e974cd0.s3tc.ctex"]
 
 [params]
 

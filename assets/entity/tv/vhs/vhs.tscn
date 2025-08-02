@@ -1,12 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dm831m5x7krwd"]
+[gd_scene load_steps=3 format=3 uid="uid://dm831m5x7krwd"]
 
 [ext_resource type="ArrayMesh" uid="uid://bpcuhacloxbn4" path="res://assets/entity/tv/vhs/mesh/vhs_Cube_001.res" id="1_shvy3"]
 [ext_resource type="ArrayMesh" uid="uid://cts30ooj1u4ag" path="res://assets/entity/tv/vhs/mesh/vhs_Cylinder.res" id="2_ykrx2"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_shvy3"]
-size = Vector3(0.5, 0.104492, 0.254883)
-
-[node name="VHS" type="RigidBody3D"]
+[node name="VHS" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("1_shvy3")
@@ -18,6 +15,3 @@ mesh = ExtResource("2_ykrx2")
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0, 0)
 mesh = ExtResource("2_ykrx2")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_shvy3")

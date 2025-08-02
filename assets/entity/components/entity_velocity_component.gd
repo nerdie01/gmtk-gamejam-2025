@@ -5,6 +5,7 @@ var velocity: Vector3
 
 @export var jump_force: float = 30
 @export var jump_lerp_decay_rate: float = 5
+@export var jump_gravity_multiplier: float = 2.0
 
 @export var move_speed: float = 120
 @export var sprint_speed: float = 180
@@ -28,4 +29,4 @@ func jump(condition: bool, delta: float) -> void:
 		jump_target = jump_force
 
 	jump_target = lerp(jump_target, 0.0, jump_lerp_decay_rate * delta)
-	velocity.y += -9.81 + jump_target
+	velocity.y += jump_gravity_multiplier * -9.81 + jump_target

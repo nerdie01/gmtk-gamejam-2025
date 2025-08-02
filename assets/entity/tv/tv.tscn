@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuylie855ri2p"]
+
+[ext_resource type="ArrayMesh" uid="uid://mh83f4oohys4" path="res://assets/entity/tv/screen/mesh/tv_screen_Cube.res" id="1_ov3vr"]
+[ext_resource type="Script" uid="uid://byfu8nj64a2yv" path="res://assets/entity/tv/tv.gd" id="2_rodwb"]
+
+[node name="TV" type="MeshInstance3D" node_paths=PackedStringArray("sprite")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+layers = 2
+mesh = ExtResource("1_ov3vr")
+script = ExtResource("2_rodwb")
+sprite = NodePath("Sprite3D")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.243901, 0.517018)
+layers = 2
+light_energy = 0.5
+omni_range = 1.0
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.178707, 0.335807)
+layers = 2
+gi_mode = 0
+pixel_size = 0.0015

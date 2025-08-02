@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvhhjl5i84i82"
-path.s3tc="res://.godot/imported/wall.jpg-2135327463946f0508d735623eabd4c9.s3tc.ctex"
+uid="uid://bgk6nwj33hl7g"
+path.s3tc="res://.godot/imported/room_small_Cube_Bake1_PBR_Diffuse.png-38d1b7c593ae808eb233be6fc4c7d0ad.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "b02a1ecc99221f4d081ac8a5525b6ef8"
+}
 
 [deps]
 
-source_file="res://blendfiles/room/wall.jpg"
-dest_files=["res://.godot/imported/wall.jpg-2135327463946f0508d735623eabd4c9.s3tc.ctex"]
+source_file="res://assets/env/room/apartment/materials/room_small_Cube_Bake1_PBR_Diffuse.png"
+dest_files=["res://.godot/imported/room_small_Cube_Bake1_PBR_Diffuse.png-38d1b7c593ae808eb233be6fc4c7d0ad.s3tc.ctex"]
 
 [params]
 

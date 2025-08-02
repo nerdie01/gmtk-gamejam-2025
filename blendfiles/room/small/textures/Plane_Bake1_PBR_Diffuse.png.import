@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvhhjl5i84i82"
-path.s3tc="res://.godot/imported/wall.jpg-2135327463946f0508d735623eabd4c9.s3tc.ctex"
+uid="uid://bv4p3e8i8tj1h"
+path.s3tc="res://.godot/imported/Plane_Bake1_PBR_Diffuse.png-dccbb6d6de8d71246a42b8140c102b91.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://blendfiles/room/wall.jpg"
-dest_files=["res://.godot/imported/wall.jpg-2135327463946f0508d735623eabd4c9.s3tc.ctex"]
+source_file="res://blendfiles/room/small/textures/Plane_Bake1_PBR_Diffuse.png"
+dest_files=["res://.godot/imported/Plane_Bake1_PBR_Diffuse.png-dccbb6d6de8d71246a42b8140c102b91.s3tc.ctex"]
 
 [params]
 
