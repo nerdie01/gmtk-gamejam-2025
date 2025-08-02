@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddnhytqadmdlg"]
+[gd_scene load_steps=10 format=3 uid="uid://ddnhytqadmdlg"]
 
 [ext_resource type="Material" uid="uid://clva6gcr1u70j" path="res://assets/env/room/textures/room.tres" id="1_62k54"]
 [ext_resource type="ArrayMesh" uid="uid://6isfspxboou8" path="res://assets/env/room/mesh/room_Plane.res" id="2_40h1v"]
@@ -12,6 +12,9 @@ data = PackedVector3Array(-0.5001, 2, 4, -0.5001, 0, 3.7999, -0.5001, 0, 4, -0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lbm1i"]
 size = Vector3(0.864258, 1.83765, 0.0771484)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_62k54"]
+size = Vector3(0.964844, 1.76074, 0.688477)
 
 [node name="DefaultRoom" type="StaticBody3D"]
 
@@ -35,10 +38,12 @@ node_a = NodePath("../Door")
 node_b = NodePath("..")
 angular_limit/enable = true
 
-[node name="Door" type="RigidBody3D" parent="."]
+[node name="Door" type="RigidBody3D" parent="." node_paths=PackedStringArray("area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("3_m3efg")
+area = NodePath("Area3D")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Door"]
 mesh = ExtResource("4_j4lna")
@@ -50,6 +55,12 @@ mesh = ExtResource("5_b3tc4")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_lbm1i")
+
+[node name="Area3D" type="Area3D" parent="Door"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.0733948)
+shape = SubResource("BoxShape3D_62k54")
 
 [node name="Interactable" type="Node" parent="Door"]
 script = ExtResource("6_6yfw7")

@@ -16,6 +16,9 @@ var last_pos: int = -100
 func _enter_tree() -> void:
 	timer.timeout.connect(_on_regen_timer_timeout)
 
+func _ready() -> void:
+	_on_regen_timer_timeout()
+
 func clamped_to_room_center(pos: Vector3) -> int:
 	return snapped(pos.dot(gen_direction), room_size)
 
@@ -31,11 +34,15 @@ func _on_regen_timer_timeout() -> void:
 			room_queue[Vector3i(i * gen_direction)] = new_room
 			add_child(new_room)
 			
-	for i: int in range(len(room_queue.keys()) - 1):
+	#print(room_queue)
+	var i = 0
+	while i < len(room_queue.keys()):
 		var room_pos: Vector3i = room_queue.keys()[i]
 		if abs(clamped_pos - gen_direction.dot(room_pos)) > cull_rooms * room_size:
 			room_queue[room_pos].queue_free()
 			room_queue.erase(room_pos)
-			i -= 1
-			
-	print(len(room_queue))
+			continue
+		i += 1
+		
+	#printraw("\n")
+	#print("After: ", room_queue)
